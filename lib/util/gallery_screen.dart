@@ -23,4 +23,3 @@ class _GalleryState extends State<Gallery> {
       );
   }
 }
-//GG
