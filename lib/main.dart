@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: HomePage(),
       theme:  ThemeData(brightness: Brightness.dark),
+      title: 'Icats'
     );
   }
 }
