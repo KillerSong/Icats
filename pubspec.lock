@@ -74,13 +74,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  like_button:
+  google_nav_bar:
     dependency: "direct main"
     description:
-      name: like_button
+      name: google_nav_bar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "5.0.6"
   lints:
     dependency: transitive
     description:

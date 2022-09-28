@@ -4,6 +4,7 @@ import 'package:banthoeng/pages/like.dart';
 import 'package:banthoeng/pages/profile.dart';
 import 'package:banthoeng/pages/ring.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
+
 // Navbar
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
@@ -32,54 +34,46 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _navigateBottomBar,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              activeIcon: Container(
-                decoration:
-                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-              )),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label: 'Chat',
-              activeIcon: Container(
-                decoration:
-                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-              )),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Like',
-              activeIcon: Container(
-                decoration:
-                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-              )),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.alarm),
-              label: 'Ring',
-              activeIcon: Container(
-                decoration:
-                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-              )),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
-              label: 'Profile',
-              activeIcon: Container(
-                decoration:
-                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle ),
-              )),
-        ],
-        backgroundColor: Colors.white,
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: GNav(
+              backgroundColor: Colors.white,
+              color: Colors.black,
+              activeColor: Colors.white,
+              tabBackgroundColor: Color(0xFF4000F4),
+              gap: 8,
+              selectedIndex: _selectedIndex,
+              onTabChange: _navigateBottomBar,
+              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+              tabs: [
+                GButton(
+                  icon: Icons.home,
+                  text: "Home",
+                ),
+                GButton(
+                  icon: Icons.message,
+                  text: "Chat",
+                ),
+                GButton(
+                  icon: Icons.favorite,
+                  text: "Like",
+                ),
+                GButton(
+                  icon: Icons.notifications,
+                  text: "Notification",
+                ),
+                GButton(
+                  icon: Icons.person,
+                  text: "Profile",
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 }
-
-
-
