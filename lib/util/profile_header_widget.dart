@@ -85,7 +85,7 @@ Widget profileHeaderWidget(BuildContext context) {
                     ],
                   ),
                   SizedBox(
-                    width: 50,
+                    width: 20,
                   ),
                 ],
               ),
