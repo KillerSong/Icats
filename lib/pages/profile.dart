@@ -1,6 +1,5 @@
+import 'package:banthoeng/util/Post_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../util/gallery_screen.dart';
 import '../util/igtv_screen.dart';
 import '../util/profile_header_widget.dart';
 import '../util/reels_screen.dart';
@@ -76,8 +75,8 @@ class UserProfilePage extends StatelessWidget {
               Expanded(
                   child: TabBarView(
                 children: [
-                  Gallery(),
                   Igtv(),
+                  Post(),
                   Reels(),
                 ],
               ))
