@@ -37,7 +37,7 @@ Widget profileHeaderWidget(BuildContext context) {
                         "Posts",
                         style: TextStyle(
                             fontSize: 15,
-                            letterSpacing: 0.4,
+                            letterSpacing: 0.2,
                             color: Colors.black),
                       ),
                     ],
@@ -58,7 +58,7 @@ Widget profileHeaderWidget(BuildContext context) {
                         "Followers",
                         style: TextStyle(
                             fontSize: 15,
-                            letterSpacing: 0.4,
+                            letterSpacing: 0.2,
                             color: Colors.black),
                       ),
                     ],
@@ -79,7 +79,7 @@ Widget profileHeaderWidget(BuildContext context) {
                         "Following",
                         style: TextStyle(
                             fontSize: 15,
-                            letterSpacing: 0.4,
+                            letterSpacing: 0.2,
                             color: Colors.black),
                       ),
                     ],
