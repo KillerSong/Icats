@@ -43,7 +43,7 @@ Widget profileHeaderWidget(BuildContext context) {
                     ],
                   ),
                   SizedBox(
-                    width: 30,
+                    width: 15,
                   ),
                   Column(
                     children: [
@@ -64,7 +64,7 @@ Widget profileHeaderWidget(BuildContext context) {
                     ],
                   ),
                   SizedBox(
-                    width: 30,
+                    width: 15,
                   ),
                   Column(
                     children: [
@@ -85,7 +85,7 @@ Widget profileHeaderWidget(BuildContext context) {
                     ],
                   ),
                   SizedBox(
-                    width: 30,
+                    width: 50,
                   ),
                 ],
               ),
