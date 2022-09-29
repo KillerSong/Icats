@@ -75,7 +75,7 @@ class UserProfilePage extends StatelessWidget {
               Expanded(
                   child: TabBarView(
                 children: [
-                  Igtv(),
+                  Gallery(),
                   Post(),
                   Reels(),
                 ],
