@@ -24,8 +24,8 @@ class _HomePageState extends State<HomePage> {
 
   final List _pages = [
     UserHomePage(),
-    UserLikePage(),
     UserChatPage(),
+    UserLikePage(),
     UserRingPage(),
     UserProfilePage(),
   ];
