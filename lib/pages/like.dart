@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../posts/myposts_1.dart';
-import '../posts/myposts_2.dart';
-import '../posts/myposts_3.dart';
+import '../posts/feed_video.dart';
+
 
 
 class UserLikePage extends StatelessWidget {
@@ -15,9 +14,7 @@ class UserLikePage extends StatelessWidget {
         controller: _controller,
         scrollDirection: Axis.vertical,
         children: [
-          MyPost1(),
-          MyPost2(),
-          MyPost3(),
+          LikePage(title: 'Hi',)
         ],
       ),
     );
