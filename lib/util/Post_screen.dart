@@ -1,4 +1,4 @@
-import 'package:banthoeng/posts/infomation_profile.dart';
+import 'package:banthoeng/posts/data.dart';
 import 'package:banthoeng/service/profilepost1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -23,17 +23,15 @@ class _PostState extends State<Post> {
 }
 
 class Content extends StatelessWidget {
-  final List<Postinfomation> postdata = List.generate(
-      posts.length,
-      (index) =>
-          Postinfomation(
-            posts[index].id, 
-            posts[index].imageprofile, 
-            posts[index].username, 
-            posts[index].detail, 
-            posts[index].time, 
-            posts[index].imagepost
-            ));
+  // final List<Post> postdata = List.generate(
+  //     posts.length,
+  //     (index) =>
+  //         Post(
+  //           posts[index].user, 
+  //           posts[index].detail, 
+  //           posts[index].time, 
+  //           posts[index].imageUrl
+  //           ));
 
   @override
   Widget build(BuildContext context) {

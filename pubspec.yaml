@@ -40,6 +40,7 @@ dependencies:
   circular_bottom_navigation: ^2.1.2
   google_nav_bar: ^5.0.6
   flutter_video_newfeed: ^1.0.3
+  cached_network_image: ^3.2.2
 
 dev_dependencies:
   flutter_test:
