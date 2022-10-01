@@ -1,3 +1,4 @@
+import 'package:banthoeng/pages/model/model.dart';
 import 'package:banthoeng/pages/model/post_model.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,20 @@ class UserHomePage extends StatefulWidget {
 }
 
 class _UserHomePageState extends State<UserHomePage> {
-  static List<PostModel> main_post_list = [PostModel("Nawani", "I Love U")];
+  static List<Search> main_post_list = [
+    Search(
+      person: 'wai',
+      postdetail: 'love Love',
+      type: 'cat',
+    ),
+    Search(
+      person: 'flash',
+      postdetail: 'love Love You you',
+      type: 'food',
+    ),
+  ];
 
-  List<PostModel> display_list = List.from(main_post_list);
+  List<Search> display_list = List.from(main_post_list);
 
   void updateList(String value) {
     setState(() {
@@ -39,14 +51,6 @@ class _UserHomePageState extends State<UserHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Search for a Movie",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold)),
-            SizedBox(
-              height: 20.0
-            ),
             TextField(
               onChanged: (value) => updateList(value),
               style: TextStyle(color: Colors.white),
@@ -57,7 +61,7 @@ class _UserHomePageState extends State<UserHomePage> {
                     borderRadius: BorderRadius.circular(8.0),
                     borderSide: BorderSide.none,
                   ),
-                  hintText: "SSearch",
+                  hintText: "Search",
                   prefixIcon: Icon(Icons.search),
                   prefixIconColor: Colors.white),
             ),
@@ -65,26 +69,31 @@ class _UserHomePageState extends State<UserHomePage> {
               height: 20.0,
             ),
             Expanded(
-              child: display_list.length == 0 ?Center(child: Text("Now result found", style: TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.bold,
-                  )
-                )
-              ):ListView.builder(
-                itemCount: display_list.length,
-                itemBuilder: (context, index) => ListTile(
-                  contentPadding: EdgeInsets.all(8.0),
-                  title: Text(
-                    display_list[index].person!,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+              child: display_list.length == 0
+                  ? Center(
+                      child: Text("Now result found",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          )))
+                  : ListView.builder(
+                      itemCount: display_list.length,
+                      itemBuilder: (context, index) => ListTile(
+                        contentPadding: EdgeInsets.all(8.0),
+                        title: Text(
+                          display_list[index].person!,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                          '${display_list[index].postdetail!}',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
-                  ),
-                  subtitle: Text(
-                    '${display_list[index].postdetail!}',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
             ),
           ],
         ),
