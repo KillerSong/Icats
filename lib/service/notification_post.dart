@@ -7,8 +7,8 @@ import 'package:like_button/like_button.dart';
 
 import '../posts/data.dart';
 
-class PostProfile1 extends StatelessWidget {
-  const PostProfile1({
+class Notifications extends StatelessWidget {
+  const Notifications({
     Key? key,
     required this.itemIndex,
     required this.post,
@@ -41,17 +41,20 @@ class PostProfile1 extends StatelessWidget {
                   post.detail,
                   style: TextStyle(color: Colors.black, fontSize: 12.0),
                 ),
-                post.imageUrl != ''
-                    ? const SizedBox.shrink()
-                    : const SizedBox(
-                        height: 6.0,
-                      ),
+                _Header(
+                  post: post,
+                  itemIndex: itemIndex,
+                ),
+                const SizedBox(
+                  height: 4.0,
+                ),
+                Text(
+                  post.detail,
+                  style: TextStyle(color: Colors.black, fontSize: 12.0),
+                ),
               ],
             ),
           ),
-          post.imageUrl != ''
-              ? CachedNetworkImage(imageUrl: post.imageUrl)
-              : const SizedBox.shrink(),
         ],
       ),
     );
@@ -90,31 +93,8 @@ class _Header extends StatelessWidget {
                       color: Colors.black),
                 ),
               ),
-              Row(
-                children: [
-                  Text(
-                    ' • ${post.time} ',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 12,
-                    ),
-                  ),
-                  Icon(
-                    Icons.public,
-                    color: Colors.grey[600],
-                    size: 12.0,
-                  )
-                ],
-              )
             ],
           ),
-        ),
-        IconButton(
-          icon: const Icon(
-            Icons.more_horiz,
-            color: Colors.black,
-          ),
-          onPressed: () => print('More'),
         ),
       ],
     );
