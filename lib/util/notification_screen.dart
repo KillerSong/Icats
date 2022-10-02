@@ -1,4 +1,5 @@
 import 'package:banthoeng/posts/data.dart';
+import 'package:banthoeng/posts/infomaition_noti.dart';
 import 'package:banthoeng/service/notification_post.dart';
 import 'package:banthoeng/service/profilepost1.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +30,10 @@ class Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListView.builder(
-        itemCount: posts.length,
+        itemCount: notis.length,
         itemBuilder: (contex,idex){
           return Container(
-            child: Notifications(itemIndex: idex, post: posts[idex],),
+            child: Notifications(itemIndex: idex, noti: notis[idex],),
           );
         },
       )

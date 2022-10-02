@@ -1,11 +1,7 @@
 import 'package:banthoeng/pages/model/post_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:like_button/like_button.dart';
-
-import '../posts/data.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class PostProfile1 extends StatelessWidget {
   const PostProfile1({
@@ -50,8 +46,17 @@ class PostProfile1 extends StatelessWidget {
             ),
           ),
           post.imageUrl != ''
-              ? CachedNetworkImage(imageUrl: post.imageUrl)
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: CachedNetworkImage(imageUrl: post.imageUrl),
+                )
               : const SizedBox.shrink(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: PostStats(
+              post: post,
+            ),
+          ),
         ],
       ),
     );
@@ -117,6 +122,138 @@ class _Header extends StatelessWidget {
           onPressed: () => print('More'),
         ),
       ],
+    );
+  }
+}
+
+class PostStats extends StatelessWidget {
+  const PostStats({
+    Key? key,
+    required this.post,
+  }) : super(key: key);
+
+  final Post post;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.blue,
+                // shape: BoxShape,
+              ),
+              child: const Icon(
+                Icons.favorite_border_outlined,
+                color: Colors.white,
+                size: 15.0,
+              ),
+            ),
+            const SizedBox(
+              width: 4.0,
+            ),
+            Expanded(
+              child: Text(
+                "${post.likes}",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 15,
+                ),
+              ),
+            ),
+            Text(
+              "${post.comments} Comments",
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 15,
+              ),
+            ),
+            const SizedBox(
+              width: 8.0,
+            ),
+            Text(
+              "${post.shares} Shares",
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
+        const Divider(),
+        Row(
+          children: [
+            PostButtom(
+              icon: Icon(
+                MdiIcons.thumbUpOutline,
+                color: Colors.grey,
+                size: 20.0,
+              ),
+              label: "Like",
+              onTap: () => print("Like"),
+            ),
+            PostButtom(
+              icon: Icon(
+                MdiIcons.commentOutline,
+                color: Colors.grey,
+                size: 20.0,
+              ),
+              label: "Comment",
+              onTap: () => print("Comment"),
+            ),
+            PostButtom(
+              icon: Icon(
+                MdiIcons.shareOutline,
+                color: Colors.grey,
+                size: 25.0,
+              ),
+              label: "Share",
+              onTap: () => print("Share"),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class PostButtom extends StatelessWidget {
+  const PostButtom({
+    Key? key,
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  }) : super(key: key);
+
+  final Icon icon;
+  final String label;
+  final Function onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Material(
+        color: Colors.white,
+        child: InkWell(
+          onTap: () {},
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            height: 25.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                icon,
+                const SizedBox(width: 4.0),
+                Text(label),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
