@@ -1,21 +1,15 @@
-import 'package:banthoeng/pages/model/post_model.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:like_button/like_button.dart';
-
-import '../posts/data.dart';
+import '../posts/infomaition_noti.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({
     Key? key,
     required this.itemIndex,
-    required this.post,
+    required this.noti,
   }) : super(key: key);
 
   final int itemIndex;
-  final Post post;
+  final Noti noti;
 
   @override
   Widget build(BuildContext context) {
@@ -31,25 +25,25 @@ class Notifications extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 _Header(
-                  post: post,
+                  noti: noti,
                   itemIndex: itemIndex,
                 ),
                 const SizedBox(
                   height: 4.0,
                 ),
                 Text(
-                  post.detail,
+                  noti.detail,
                   style: TextStyle(color: Colors.black, fontSize: 12.0),
                 ),
                 _Header(
-                  post: post,
+                  noti: noti,
                   itemIndex: itemIndex,
                 ),
                 const SizedBox(
                   height: 4.0,
                 ),
                 Text(
-                  post.detail,
+                  noti.detail,
                   style: TextStyle(color: Colors.black, fontSize: 12.0),
                 ),
               ],
@@ -65,11 +59,11 @@ class _Header extends StatelessWidget {
   const _Header({
     Key? key,
     required this.itemIndex,
-    required this.post,
+    required this.noti,
   }) : super(key: key);
 
   final int itemIndex;
-  final Post post;
+  final Noti noti;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +71,7 @@ class _Header extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 25,
-          backgroundImage: NetworkImage(post.user.imageUrl),
+          backgroundImage: NetworkImage(noti.imageprofile),
         ),
         Expanded(
           child: Column(
@@ -86,7 +80,7 @@ class _Header extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  post.user.name,
+                  noti.username,
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,

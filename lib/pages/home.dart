@@ -36,7 +36,7 @@ class _UserHomePageState extends State<UserHomePage> {
     });
   }
 
-  // final _controller = PageController(initialPage: 0);
+  final _controller = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
